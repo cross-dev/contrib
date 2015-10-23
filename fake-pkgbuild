@@ -23,8 +23,10 @@ license=('GPL')\
 def get_quoted(alist):
     return " ".join("'{0}'".format(p) for p in alist)
 
-print "provides=(" + get_quoted(args.provides) + ")"
-print "conflicts=(" + get_quoted(args.conflicts) + ")"
+if args.provides is not None:
+    print "provides=(" + get_quoted(args.provides) + ")"
+if args.conflicts is not None:
+    print "conflicts=(" + get_quoted(args.conflicts) + ")"
 
 print """
 package() {
